@@ -1,8 +1,0 @@
-Env requests.
-
-python 2.7.x
-安装pip已下第三方包均可使用 pip install进行安装
-
-python 使用到的模块:
-    mustaine (0.1.7)
-   
