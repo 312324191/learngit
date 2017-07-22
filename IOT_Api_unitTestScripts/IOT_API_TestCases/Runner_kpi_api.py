@@ -12,7 +12,7 @@ from qryCustomerBillDeatils import qryCustomerBillDeatils
 from qryCustomerBills import qryCustomerBills
 
 if __name__ == '__main__':
-
+    # print 1
     suite = unittest.TestSuite()
     testClassList = [qryCustomerBillDeatils,qryCustomerBills]
 
