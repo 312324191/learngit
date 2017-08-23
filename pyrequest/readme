@@ -1,0 +1,10 @@
+创建日期：2017-8-22
+版本：python2.7
+扩展包：PyMySQL (0.7.11)、requests (2.18.1)、configparser (3.5.0)
+
+构建组成：
+db_fixture:初始化接口测试数据
+interface:用于编写接口自动化测试用例
+report:生成接口自动化测试报告
+db_config.ini:数据库连接配置文件
+run_tests.py:执行所有接口测试用例的主程序
