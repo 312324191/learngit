@@ -3,9 +3,11 @@ __author__ = 'XT'
 import unittest
 import requests
 import os, sys
-parentdir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-sys.path.insert(0, parentdir)
-# import test_data
+parentdir = str(os.path.dirname(os.path.dirname(__file__)))
+parentdir =parentdir.replace('\\', '/')
+sys.path.append(parentdir+'/db_fixture')
+import common_optMysql
+
 import configparser as cparser
 from requests_toolbelt import MultipartEncoder
 
@@ -18,7 +20,7 @@ cf.read(file_path)
 url = cf.get("short_message", "url")
 
 class AddEventTest(unittest.TestCase):
-    """短信发送接口"""
+    """"""
     def setUp(self):
         global url
         global base_dir
@@ -32,7 +34,7 @@ class AddEventTest(unittest.TestCase):
         pass
 
     def test_normal_01(self):
-        ''' 所以参数为空'''
+        ''' '''
         res = requests.post(url=self.base_url, data=self.data, headers=self.headers)
         res = res.content
 if __name__ == '__main__':
