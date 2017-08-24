@@ -7,35 +7,30 @@ sys.path.append(path_db_fixture)
 # print sys.path
 from mysql_db import DB
 datas = {
-    'sign_event':[
-    {'`name`': '1', '`limit`': '2000', '`status`': '1', '`address`': '1', '`start_time`': '2017-8-24 22:34:59','`create_time`': '2017-8-24 22:34:59'},
-    {'`name`': '2', '`limit`': '2000', '`status`': '1', '`address`': '1', '`start_time`': '2017-8-24 22:34:59','`create_time`': '2017-8-24 22:34:59'},
-    {'`name`': '3', '`limit`': '2000', '`status`': '1', '`address`': '1', '`start_time`': '2017-8-24 22:34:59','`create_time`': '2017-8-24 22:34:59'},
-    {'`name`': '4', '`limit`': '2000', '`status`': '1', '`address`': '1', '`start_time`': '2017-8-24 22:34:59','`create_time`': '2017-8-24 22:34:59'},
-    {'`name`': '5', '`limit`': '2000', '`status`': '1', '`address`': '1', '`start_time`': '2017-8-24 22:34:59','`create_time`': '2017-8-24 22:34:59'}
-    ],
-    'sign_guest':[
-    {'`realname`': '2000', '`phone`': '1', '`email`': '1', '`sign`': '1','`event`': '1'},
-    {'`realname`': '2000', '`phone`': '1', '`email`': '1', '`sign`': '1','`event`': '1'},
-    {'`realname`': '2000', '`phone`': '1', '`email`': '1', '`sign`': '1','`event`': '1'},
-    {'`realname`': '2000', '`phone`': '1', '`email`': '1', '`sign`': '1','`event`': '1'},
-    {'`realname`': '2000', '`phone`': '1', '`email`': '1', '`sign`': '1','`event`': '1'}
+    '`t_user_function`':[
+    {'`user_id`': '1', '`func_code`': '2000'},
+    {'`user_id`': '2', '`func_code`': '2001'}
     ]
 }
-def init_data():
+def init_data(datas):
     db = DB()
     for table,data in datas.items():
-        # del_data()
         for d in data:
             db.insert(table, d)
     db.close()
 
-def del_data():
+def del_data(datas):
     db=DB()
     for table,data in datas.items():
         for d in data:
             db.delete(table, d)
     db.close()
 if __name__ == '__main__':
-    init_data()
-    del_data()
+    datas = {
+        '`t_user_function`':[
+        {'`user_id`': '1', '`func_code`': '2000'},
+        {'`user_id`': '2', '`func_code`': '2001'}
+        ]
+    }
+    del_data(datas)
+    init_data(datas)
