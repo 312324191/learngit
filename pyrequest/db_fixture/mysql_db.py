@@ -13,18 +13,18 @@ file_path = base_dir + "/db_config.ini"
 cf = cparser.ConfigParser()
 cf.read(file_path)
 
-host = cf.get("mysqlconf_billing", "host")
-port = cf.get("mysqlconf_billing", "port")
-db = cf.get("mysqlconf_billing", "db_name")
-user = cf.get("mysqlconf_billing", "user")
-password = cf.get("mysqlconf_billing", "password")
+host = cf.get("mysqlconf", "host")
+port = cf.get("mysqlconf", "port")
+# db = cf.get("mysqlconf", "db_name")
+user = cf.get("mysqlconf", "user")
+password = cf.get("mysqlconf", "password")
 # print host,port,db,user,password
 #==== 封装mysql基本操作 ====
 class DB:
     """docstring for DB"""
     def __init__(self):
         try:
-            self.conn = connect(host = host, port=int(port), user = user, password = password, db = db, charset = 'utf8mb4', cursorclass = cursors.DictCursor)
+            self.conn = connect(host = host, port=int(port), user = user, password = password, charset = 'utf8mb4', cursorclass = cursors.DictCursor)
             # print self.conn
         except OperationalError as e:
             print ('MySQL Error %d: %s' % (e.args[0], e.args[1]))
@@ -47,6 +47,7 @@ class DB:
         key = ','.join(table_data.keys())
         value = ','.join(table_data.values())
         real_sql = "INSERT INTO " + table_name + " (" + key + ") VALUES (" + value + ")"
+        # print real_sql
         with self.conn.cursor() as cursor:
             cursor.execute(real_sql)
         self.conn.commit()
@@ -59,7 +60,7 @@ class DB:
         for key in table_data:
             strs =" and "+str(key) +"= "+ str(table_data[key])
             list_01.append(strs)
-        real_sql = "delete from " + table_name + " where 1=1 " + ''.join(list_01)
+        real_sql = "DELETE FROM " + table_name + " WHERE 1=1 " + ''.join(list_01)
         # print real_sql
         with self.conn.cursor() as cursor:
            cursor.execute(real_sql)

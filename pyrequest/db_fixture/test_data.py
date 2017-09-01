@@ -7,10 +7,10 @@ sys.path.append(path_db_fixture)
 # print sys.path
 from mysql_db import DB
 datas = {
-    '`t_user_function`':[
-    {'`user_id`': '1', '`func_code`': '2000'},
-    {'`user_id`': '2', '`func_code`': '2001'}
-    ]
+    '`gateway`.`ability_package`':[
+            {'`ability_package_id`': '80', '`ability_package_name`': '自动化测试能力包', 'ability_package_icon': '81', '`subscribe_type`':'2','`status`':'1','`describes`':'描述','`crt_uid`':'1','`crt_time`':"2017-08-31 14:47:58",'`remark`':'备注'},
+            {'`ability_package_id`': '81', '`ability_package_name`': '自动化测试能力包', 'ability_package_icon': '81', '`subscribe_type`':'2','`status`':'0','`describes`':'描述','`crt_uid`':'1','`crt_time`':"2017-08-31 14:47:58",'`remark`':'备注'}
+            ]
 }
 def init_data(datas):
     db = DB()
@@ -26,11 +26,5 @@ def del_data(datas):
             db.delete(table, d)
     db.close()
 if __name__ == '__main__':
-    datas = {
-        '`t_user_function`':[
-        {'`user_id`': '1', '`func_code`': '2000'},
-        {'`user_id`': '2', '`func_code`': '2001'}
-        ]
-    }
-    del_data(datas)
     init_data(datas)
+    del_data(datas)

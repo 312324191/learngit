@@ -18,11 +18,11 @@ file_path = base_dir + "/db_config.ini"
 cf = cparser.ConfigParser()
 cf.read(file_path)
 
-host = cf.get("mysqlconf_billing", "host")
-port = cf.get("mysqlconf_billing", "port")
-db = cf.get("mysqlconf_billing", "db_name")
-user = cf.get("mysqlconf_billing", "user")
-password = cf.get("mysqlconf_billing", "password")
+host = cf.get("mysqlconf", "host")
+port = cf.get("mysqlconf", "port")
+# db = cf.get("mysqlconf", "db_name")
+user = cf.get("mysqlconf", "user")
+password = cf.get("mysqlconf", "password")
 
 logPath = parentdir + "/error.log"
 
@@ -30,7 +30,7 @@ class DB():
     """docstring for DB"""
     def __init__(self):
         try:
-            self.conn = connect(host = host, port=int(port), user = user, password = password, db = db, charset = 'utf8mb4', cursorclass = cursors.DictCursor)
+            self.conn = connect(host = host, port=int(port), user = user, password = password, charset = 'utf8mb4', cursorclass = cursors.DictCursor)
         except OperationalError as e:
             print ('MySQL Error %d: %s' % (e.args[0], e.args[1]))
     def close(self):
@@ -76,6 +76,6 @@ class DB():
 
 if __name__ == "__main__":
     db=DB()
-    print db.Select_All("SELECT * FROM `sms_file`")
+    print db.Select_All("select max(ability_id) from gateway.ability")[0].get('max(ability_id)')
     db.close()
 
