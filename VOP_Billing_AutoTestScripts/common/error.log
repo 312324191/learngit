@@ -1,0 +1,28 @@
+__main__    DelUserByMobile     'NoneType' object has no attribute '__getitem__'    Mon Apr 18 11:54:42 2016    
+common_optMysql    QueryDB     (1054, u"Unknown column 'OJvWpmI' in 'where clause'")    Fri Mar 10 16:24:49 2017    
+
+__main__    QueryDB     __exit__    Sat Mar 11 09:11:55 2017    
+common_optOracle    QueryDB     ORA-01722: invalid number
+    Sun Mar 12 11:40:31 2017    
+common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Thu Nov 02 16:20:18 2017    
+common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Thu Nov 02 18:15:13 2017    
+common_optOracle    GetDatas_QueryDB     ORA-00942: 表或视图不存在
+    Mon Nov 13 18:32:16 2017    
+common_optOracle    GetDatas_QueryDB     ORA-00942: 表或视图不存在
+    Mon Nov 13 18:32:32 2017    
+common_optOracle    GetDatas_QueryDB     ORA-00942: 表或视图不存在
+    Mon Nov 13 18:33:10 2017    
+common_optOracle    GetDatas_QueryDB     ORA-00942: 表或视图不存在
+    Mon Nov 13 18:33:16 2017    
+__main__    GetDatas_QueryDB     ORA-00942: 表或视图不存在
+    Mon Nov 13 18:34:44 2017    
+__main__    GetDatas_QueryDB     ORA-00942: 表或视图不存在
+    Mon Nov 13 18:35:36 2017    
+__main__    QueryDB     ORA-00942: 表或视图不存在
+    Mon Nov 13 18:36:02 2017    
+common_optOracle_billing    GetDatas_QueryDB     ORA-01722: 无效数字
+    Tue Nov 14 15:35:56 2017    
+common_optOracle_billing    GetDatas_QueryDB     ORA-01722: 无效数字
+    Tue Nov 14 15:36:16 2017    
+common_optOracle_billing    GetDatas_QueryDB     ORA-01722: 无效数字
+    Tue Nov 14 15:38:42 2017    

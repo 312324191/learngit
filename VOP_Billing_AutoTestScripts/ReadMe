@@ -1,0 +1,10 @@
+Env requests.
+
+python 2.7.x
+安装pip已下第三方包均可使用 pip install进行安装
+
+python 使用到的模块:
+    cx_Oracle (3.0.3)  -- 需要在测试机安装oracle client
+    PyMySQL (0.6.6)  -- 需要先在测试机安装 mysql server client
+    requests (2.7.0)
+   

@@ -1,0 +1,23 @@
+common.common_optMysql    QueryDB     (1054, u"Unknown column 'OJvWpmI' in 'where clause'")    Fri Mar 10 16:22:01 2017    
+common.common_optMysql    QueryDB     (1054, u"Unknown column 'OJvWpmI' in 'where clause'")    Fri Mar 10 16:22:43 2017    
+common.common_optMysql    QueryDB     (1054, u"Unknown column 'OJvWpmI' in 'where clause'")    Fri Mar 10 16:23:21 2017    
+common.common_optOracle    QueryDB     ORA-01722: invalid number
+    Sun Mar 12 12:04:47 2017    
+common.common_optOracle    QueryDB     ORA-01722: invalid number
+    Sun Mar 12 12:07:53 2017    
+common.common_optOracle    QueryDB     ORA-01722: invalid number
+    Sun Mar 12 12:12:25 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:12:26 2017    
+common.common_optOracle    QueryDB     ORA-01722: invalid number
+    Sun Mar 12 12:13:29 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:13:29 2017    
+common.common_optOracle    QueryDB     ORA-01722: invalid number
+    Sun Mar 12 12:17:06 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:17:06 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:25:39 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:25:39 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:29:25 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:29:25 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:30:08 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Sun Mar 12 12:30:08 2017    
+common.common_optOracle    QueryDB     'NoneType' object has no attribute '__getitem__'    Wed Mar 15 18:22:21 2017    
