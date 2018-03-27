@@ -1,0 +1,13 @@
+Tue, 27 Mar 2018 15:55:39 test_01.py[line:75] DEBUG This is debug message svc_number : 17090440550
+Tue, 27 Mar 2018 15:55:40 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): 10.161.50.86
+Tue, 27 Mar 2018 15:55:42 connectionpool.py[line:396] DEBUG https://10.161.50.86:8006 "POST /OSN/vop/extended_service/blankcard_register_account/v2?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY HTTP/1.1" 200 44
+Tue, 27 Mar 2018 15:55:42 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.161.50.86
+Tue, 27 Mar 2018 15:55:42 connectionpool.py[line:396] DEBUG http://10.161.50.86:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None
+Tue, 27 Mar 2018 15:56:43 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): 10.161.50.86
+Tue, 27 Mar 2018 15:56:44 connectionpool.py[line:396] DEBUG https://10.161.50.86:8006 "POST /OSN/vop/basic_service/modify_service/v2?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY HTTP/1.1" 200 44
+Tue, 27 Mar 2018 15:56:45 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.161.50.86
+Tue, 27 Mar 2018 15:56:45 connectionpool.py[line:396] DEBUG http://10.161.50.86:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None
+Tue, 27 Mar 2018 15:57:45 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): 10.161.50.86
+Tue, 27 Mar 2018 15:57:46 connectionpool.py[line:396] DEBUG https://10.161.50.86:8006 "POST /OSN/vop/basic_service/switch_status/v3?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY HTTP/1.1" 200 44
+Tue, 27 Mar 2018 15:57:46 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.161.50.86
+Tue, 27 Mar 2018 15:57:47 connectionpool.py[line:396] DEBUG http://10.161.50.86:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None
