@@ -1,0 +1,22 @@
+虚拟用户脚本已从 : 2018-03-29 17:12:36 启动
+正在开始操作 vuser_init。
+WIN32 版 LoadRunner 11.0.0 的 Web Turbo 重播; 内部版本 8859 (Aug 18 2010 20:14:31)  	[MsgId: MMSG-27143]
+Run Mode: HTML  	[MsgId: MMSG-26000]
+运行时设置文件: "H:\办公文档\性能相关\各接口脚本\漏电变更\\default.cfg"  	[MsgId: MMSG-27141]
+正在结束操作 vuser_init。
+正在运行 Vuser...
+正在开始迭代 1。
+正在开始操作 Action。
+Action.c(3): timestamp1 = 20180329171237
+Action.c(4): svc_number = 17000404200
+Action.c(5): 注册 web_reg_find 成功  	[MsgId: MMSG-26390]
+Action.c(7): 通知: 事务 "ldbg" 已启动。
+Action.c(9): 注册的 web_reg_find 对于“Text=SUCCESS”成功(计数=1)  	[MsgId: MMSG-26364]
+Action.c(9): web_custom_request("url") 已成功，44 个正文字节，149 个标头字节  	[MsgId: MMSG-26386]
+Action.c(37): 通知: 事务 "ldbg" 以 "Pass" 状态结束 (持续时间: 5.9005 浪费的时间: 1.4222)。
+正在结束操作 Action。
+正在结束迭代 1。
+正在结束 Vuser...
+正在开始操作 vuser_end。
+正在结束操作 vuser_end。
+Vuser 已终止。

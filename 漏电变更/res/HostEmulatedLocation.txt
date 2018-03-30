@@ -1,0 +1,4 @@
+[нч WAN ╥буФ]
+HostsCount=2
+Host0=10.124.5.213
+Host1=localhost

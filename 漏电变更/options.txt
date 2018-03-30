@@ -1,0 +1,9 @@
+-+
+-DCCI
+-D_IDA_XL
+-DWINNT
+-IH:\办公文档\性能相关\各接口脚本\漏电变更
+-IH:\Program Files (x86)\HP\LoadRunner\include
+-eh:\办公文档\性能相关\各接口脚本\漏电变更\\logfile.log
+h:\办公文档\性能相关\各接口脚本\漏电变更\\combined_漏电变更.c
+h:\办公文档\性能相关\各接口脚本\漏电变更\\pre_cci.c
