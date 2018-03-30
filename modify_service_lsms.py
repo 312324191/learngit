@@ -15,17 +15,7 @@ requests.packages.urllib3.disable_warnings()
 path=str(os.path.dirname(__file__))
 base_dir = path.replace('\\', '/')
 
-# ip_port_servername = "10.124.5.209:1530/TDB" # 性能环境
-ip_port_servername = "10.161.50.87:1530/TDB"  # 云化环境
-# ip_port_servername = "10.124.1.11:1521/sod"  # 准生产环境
-user = "dbvop"
-password = "dbvop"
 
-# user = "query"
-# password = "1qaz2wsx"
-# API_ID = "10.124.5.208"  # 性能环境
-API_ID = "10.161.50.86"  # 云化环境
-# API_ID = "10.124.1.7"  # 准生产环境
 
 # ====== 日志打印 bebug级别 ======
 import logging
