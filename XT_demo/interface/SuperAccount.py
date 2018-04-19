@@ -60,17 +60,18 @@ def Res_Template(business_make, template, svc_number=None, imsi=None, iccid=None
                 Sn.close()
         logging.debug('This is debug message svc_number : %s' % svc_number)
         # logging.info("svc_number is : %s " % svc_number, "imsi is : %s " % imsi)
-        data, token, service_type, service_name = rt.extended_service(svc_number, imsi, iccid, template)
+        data, token, service_type, service_name = rt.blankcard_model_product(svc_number, imsi, iccid, template)
 
         global ip, Edition, order_host
         # 拼装API请求地址
         url = "https://%s:%s/OSN/vop/%s/%s/%s?token=%s" % (ip, host, service_type, service_name, Edition, token)
+        # logging.debug('url :%s' % url)
         # 拼装竣工地址
         order_url = "http://%s:%s/OSN/services/VOPForOrderCompleteNotifySer" %(ip, order_host)
     except AttributeError:
         print u"请查看转企标识没有找到信息"
     json_data = json.dumps(data, indent=4)
-    # logging.debug('This is debug message json_data : %s' % json_data)
+    logging.debug('This is debug message json_data : %s' % json_data)
     resp = requests.post(url=url, data=json_data,verify=False)
     # logging.debug('This is debug message resp.content : %s' % resp.content)
     resp_json = resp.json()
@@ -95,8 +96,85 @@ def Res_Template(business_make, template, svc_number=None, imsi=None, iccid=None
             ServiceOrder = vp.Service_Order(data["data"]["order_id"])
         finally:
             vp.close()
-        if ServiceOrder[0][1] is not None:print u'竣工成功' 
+        if ServiceOrder[0][1] is not None:return u"竣工成功：%i " % svc_number
         else:print u'竣工失败'
+
 if __name__=='__main__':
     # 小bug mvnobusiness != None or VOPI 需要传号码等信息不能为空
-    Res_Template("VOPI", services)
+    # services = [
+    #     {
+    #                     "product_id":"V0001",
+    #                     "action_type":"order"
+    #                 },
+    #     {
+    #                     "product_id":"V0003",
+    #                     "action_type":"order"
+    #                 },
+    #     {
+    #                     "product_id":"V0025",
+    #                     "action_type":"order"
+    #                 },
+    #     {
+    #                     "product_id":"V0019",
+    #                     "action_type":"order"
+    #                 },
+    #     {
+    #                     "product_id":"V0017",
+    #                     "action_type":"order"
+    #                 }
+    #             ]
+
+    services = [
+        {
+                        "mproduct_id": "PR_0005",
+                        "action_type": "order",
+                        "packages": [
+        {
+                                "package_id": "PK_0033",
+                                "discnts": [
+        {
+                                        "discnt_id": "ZE_0111",
+                                        "action_type": "order"
+                                    }
+                                ]
+                            },
+        {
+                                "package_id": "PK_0035",
+                                "discnts": [
+        {
+                                        "discnt_id": "PE_0119",
+                                        "action_type": "order"
+                                    }
+                                ]
+                            },
+        {
+                                "package_id": "PK_0043",
+                                "discnts": [
+                                    {
+                                        "discnt_id": "PE_0129",
+                                        "action_type": "order"
+                                    }
+                                ]
+                            },
+        {
+                                "package_id": "PK_0042",
+                                "discnts": [
+                                    {
+                                        "discnt_id": "PE_0126",
+                                        "action_type": "order"
+                                    }
+                                ]
+                            },
+        {
+                                "package_id": "PK_0040",
+                                "discnts": [
+                                    {
+                                        "discnt_id": "PE_0124",
+                                        "action_type": "order"
+                                    }
+                                ]
+                            }
+                ]
+        }
+        ]
+    print Res_Template(None,services)

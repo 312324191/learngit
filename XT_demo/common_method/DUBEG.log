@@ -1,0 +1,2 @@
+Wed, 18 Apr 2018 14:44:30 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.124.1.7
+Wed, 18 Apr 2018 14:44:31 connectionpool.py[line:396] DEBUG http://10.124.1.7:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None

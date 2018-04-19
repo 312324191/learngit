@@ -8,4 +8,6 @@ db_fixture: 放置数据库底层链接操作
 interface: 放置用例文件(demo01为简单样例)(计费需要开户只需要配置链接运行demo01 并选择开户模式)
 db_config.ini: 配置文件(切换环境只需要把文件名字给成这个名字就行)
 
-日志级别在./db_fixture/orcale_db.py文件中
+日志级别:./db_fixture/orcale_db.py文件中
+
+执行文件：run_tests.py

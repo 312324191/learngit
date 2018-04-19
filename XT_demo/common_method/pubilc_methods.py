@@ -85,56 +85,57 @@ class Verifying_Point(BD_oracle_API):
 
     def order_service_inst(self):
         # 依赖于Service_Order传下来的self.service_order_id
-        sql = "select SERVICE_INST, ACTION_TYPE, SERVICE_ORDER_LANCH_TIME\
+        sql = "select SERVICE_INST, ACTION_TYPE, to_char(SERVICE_ORDER_LANCH_TIME,'YYYY-MM-DD hh24:mi:ss' )\
         from dbvop.order_service_inst osi \
-        where osi.service_order_id='%s'" % (self.service_order_id)
+        where osi.service_order_id='%s' order by SERVICE_INST " % (self.service_order_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def bss_order_service_inst(self):
-        sql = "select s.property_key,s.prop_action_type,s.property_value \
+        sql = "select s.property_key,s.prop_action_type,s.property_value, SERVICE_INST, ACTION_TYPE, to_char(SERVICE_ORDER_LANCH_TIME,'YYYY-MM-DD hh24:mi:ss' ) \
         from dbvop.bss_order_service_inst s \
         where s.service_order_id='%s'" % self.service_order_id
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def order_prod_subscribe(self):
-        sql = "select b.product_id,b.prod_action_type,b.mvno_business_mark \
+        sql = "select b.product_id,b.prod_action_type,b.mvno_business_mark, to_char(SERVICE_ORDER_LANCH_TIME,'YYYY-MM-DD hh24:mi:ss' )  \
         from dbvop.order_prod_subscribe b where b.service_order_id='%s' " % (self.service_order_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def order_discnt_subscribe(self):
-        sql = "select count(1) from dbvop.order_discnt_subscribe a \
-        where  a.service_order_id='%s'" % (self.service_order_id)
+        sql = "select DISCNT_ACTION_TYPE, to_char(SERVICE_ORDER_LANCH_TIME,'YYYY-MM-DD hh24:mi:ss' ), DISCNT_ID\
+        from dbvop.order_discnt_subscribe a \
+        where  a.service_order_id='%s' order by DISCNT_ID" % (self.service_order_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def service_order_back(self):
         sql = "select s.service_order_push_status,s.feedback_result,\
-        to_char(s.bss_svc_order_cplt_time,'YYYYMMDDHH24MISS') \
+        to_char(s.bss_svc_order_cplt_time,'yyyymmdd hh24miss') \
         from dbvop.service_order_back s \
         where s.service_order_id='%s'" % (self.service_order_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def service_inst_subscribe(self):
-        sql = "select to_char(s.order_time,'YYYYMMDDHH24MISS'),s.service_inst_status,\
-        s.service_class_code,s.last_mvno_service_order_no \
+        sql = "select to_char(s.order_time,'yyyymmdd hh24miss'),s.service_inst_status,\
+        s.service_class_code,s.last_mvno_service_order_no,SERVICE_INST \
         from dbvop.service_inst_subscribe s \
         where s.mvno_user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def bss_inst_subscribe(self):
-        sql = "select b.property_key,b.property_value \
+        sql = "select b.property_key,b.property_value,SERVICE_INST,to_char(order_time,'yyyymmdd hh24miss') \
         from dbvop.bss_inst_subscribe b \
         where b.mvno_user_id='%s' " % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def prod_subscribe(self):
-        sql = "select s.product_id,to_char(s.order_time,'YYYYMMDDHH24MISS'),\
+        sql = "select s.product_id,to_char(s.order_time,'yyyymmdd hh24miss'),\
         s.last_mvno_service_order_no,s.mvno_business_mark \
         from dbvop.prod_subscribe s where s.mvno_user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
@@ -142,31 +143,35 @@ class Verifying_Point(BD_oracle_API):
 
     def discnt_subscribe(self):
         sql = "select DISCNT_ID, PROD_PACKAGE_ID from dbvop.discnt_subscribe where prod_subscribe_id=\
-        (select PROD_SUBSCRIBE_ID from dbvop.prod_subscribe where mvno_user_id='%s')\
-        order by discnt_subscribe_id" % (self.mvno_user_id)
+        (select PROD_SUBSCRIBE_ID from dbvop.prod_subscribe where mvno_user_id='%s' )\
+        order by DISCNT_ID" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def life_Imsi(self):
-        sql = "select l.imsi,to_char(l.eff_date,'YYYYMMDDHH24MISS'),\
-        l.eff_flag,l.mvno_business_mark \
+        sql = "select l.imsi,to_char(l.eff_date,'yyyymmdd hh24miss'),\
+        l.eff_flag,l.mvno_business_mark,to_char(EXP_DATE,'yyyymmdd hh24miss') \
         from dbvop.life_imsi l where l.user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 
     def Info_User(self):
-        sql = "select to_char(i.stop_date,'YYYY/MM/DD/HH24/MI/SS'),\
-        to_char(i.create_date,'YYYYMMDDHH24MISS') \
+        sql = "select to_char(i.stop_date,'YYYYMMDD HH24MISS'),\
+        to_char(i.create_date,'yyyymmdd hh24miss'),VALID_FLAG,USER_STATUS,user_type\
         from dbvop.info_user i where i.user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
     def Life_User_Product(self):
-        sql = "select count(1) from dbvop.Life_User_Product l \
+        sql = "select EFF_FLAG, to_char(EFF_DATE,'YYYYMMDD HH24MISS') ,\
+        to_char(EXP_DATE,'YYYYMMDD HH24MISS'), to_char(CREATE_DATE,'YYYYMMDD HH24MISS')\
+        from dbvop.Life_User_Product l \
         where l.user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
     def LIFE_USER_PRODUCT_DISCT(self):
-        sql = "select count(1) from dbvop.LIFE_USER_PRODUCT_DISCT s \
+        sql = "select EFF_FLAG, to_char(EFF_DATE,'YYYYMMDD HH24MISS') ,\
+        to_char(EXP_DATE,'YYYYMMDD HH24MISS'), to_char(CREATE_DATE,'YYYYMMDD HH24MISS')\
+        from dbvop.LIFE_USER_PRODUCT_DISCT s \
         where s.mvno_user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
@@ -211,7 +216,7 @@ class Verifying_Point(BD_oracle_API):
         return rep_sql
     def life_user(self, imsi):
         sql = "select l.user_status,l.user_type,l.valid_flag,l.service_class_code,\
-        to_char(l.eff_date,'yyyymmddhh24miss'),to_char(l.exp_date,'YYYYMMDD') \
+        to_char(l.eff_date,'yyyymmdd hh24miss'),to_char(l.exp_date,'YYYYMMDD') \
         from dbvop.life_user l where l.mvno_user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
@@ -220,6 +225,21 @@ class Verifying_Point(BD_oracle_API):
         b.mvno_business_mark,b.bss_service_order_no_state \
         from dbvop.BSS_order_no_mvno_mapping b \
         where b.bss_service_order_no='%s'" % (bss_service_order_no)
+        rep_sql = self.GetDatas_QueryDB(sql)
+        return rep_sql
+    def mvno_user(self):
+        sql = "select to_char(DEAL_TIME,'yyyymmdd hh24miss'), MVNO_USER_TYPE, MVNO_USER_STATUS\
+        from dbvop.mvno_user where mvno_user_id='%s'" % (self.mvno_user_id)
+        rep_sql = self.GetDatas_QueryDB(sql)
+        return rep_sql
+    def PAY_USER_REL(self):
+        sql = "select EFF_FLAG,to_char(EFF_DATE,'YYYYMMDD HH24MISS'),to_char(EXP_DATE,'YYYYMMDD HH24MISS')\
+        from dbvop.PAY_USER_REL where user_id='%s'" % (self.mvno_user_id)
+        rep_sql = self.GetDatas_QueryDB(sql)
+        return rep_sql
+    def Life_User_Type(self):
+        sql = "select MVNO_USER_TYPE,to_char(BEGIN_TIME,'YYYYMMDD HH24MISS'),to_char(END_TIME,'YYYYMMDD HH24MISS')\
+        from dbvop.LIFE_USER_TYPE where mvno_user_id='%s'" % (self.mvno_user_id)
         rep_sql = self.GetDatas_QueryDB(sql)
         return rep_sql
 if __name__ == '__main__':

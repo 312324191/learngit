@@ -195,8 +195,8 @@ class Requsts_template():
                 "iccid": iccid,
                 "mproducts":mproducts,
                  "customer": {
-                    "cust_name": "王三",
-                    "cert_address": "北京",
+                    "cust_name": u"王三",
+                    "cert_address": u"北京",
                     "cert_type_code": "01",
                     "cert_code": "220111198603010011"
                 }
@@ -226,15 +226,15 @@ class Requsts_template():
                 "iccid": iccid,
                 "mproducts":mproducts,
                 "customer": {
-                    "cust_name": "王三",
-                    "cert_address": "北京",
+                    "cust_name": u"王三",
+                    "cert_address": u"北京",
                     "cert_type_code": "01",
                     "cert_code": "220111198603010011"
                 }
             }
         }
         return date, self.token, service_type, service_name
-    def modify_service_model(self, phone_number, imsi, iccid, mproducts, service_class_code=None):
+    def modify_service_model(self, phone_number, imsi, mproducts, service_class_code=None):
         # 输入电话号码、网别（默认4G）、imsi、iccid、开户资源信息
         # 模组产品变更
         if service_class_code is None:
@@ -256,11 +256,10 @@ class Requsts_template():
                 "phone_number": phone_number,
                 "service_class_code": service_class_code,
                 "imsi": imsi,
-                "iccid": iccid,
                 "mproducts":mproducts,
-                "mproducts": {
-                    "cust_name": "王三",
-                    "cert_address": "北京",
+                "customer": {
+                    "cust_name": u"王三",
+                    "cert_address": u"北京",
                     "cert_type_code": "01",
                     "cert_code": "220111198603010011"
                 }
@@ -333,25 +332,14 @@ class Requsts_template():
         }
         return date, self.token, service_type, service_name
 if __name__ == '__main__':
+    import requests
     try:
         rt = Requsts_template("VOPI")
-        import json
-        a = [
-            {
-                "product_id": "V0001",
-                "action_type": "off"
-            },
-            {
-                "product_id": "V0025",
-                "action_type": "keep"
-            },
-            {
-                "product_id": "V0024",
-                "action_type": "keep"
-            }
-        ]
-        a = rt.switch_status(17090440545, "460010449800684", "89860119900001774340", a)[0]
-        print json.dumps(a, sort_keys=True, indent=4, encoding='utf-8', ensure_ascii=False)
+        a = rt.For_Order_Complete_Notify_Ser(9618041800027238)
+        # print json.dumps(a, sort_keys=True, indent=4, encoding='utf-8', ensure_ascii=False)
+        url = 'http://10.124.1.7:8000/OSN/services/VOPForOrderCompleteNotifySer'
+        rep = requests.post(url=url ,data=a, verify=False)
+        print rep.content
     except AttributeError:
         print "请查看转企标识没有找到信息"
     

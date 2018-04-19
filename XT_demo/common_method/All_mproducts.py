@@ -308,7 +308,7 @@ services = [
                 "product_id": "V0014",
                 "action_type": "order"
             },
-{
+    {
                     "product_id": "V0016",
                     "action_type": "order",
                        "properties": [
@@ -356,4 +356,207 @@ services = [
                     ]
   
                 }
+        ]
+
+mini = [
+            {
+                "mproduct_id": "PR_0005",
+                "action_type": "order",
+                "packages": [
+                 {
+                        "package_id": "PK_0033",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0112",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0034",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0114",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0035",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0119",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0120",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0121",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0122",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0044",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0130",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0045",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0131",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0040",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0124",
+                                "action_type": "order",
+                                "properties": [
+                                    {
+                                        "key": "cnctargetnum",
+                                        "action_type": "order",
+                                        "value": "17099741000"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0041",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0125",
+                                "action_type": "order",
+                                "properties": [
+                                    {
+                                        "key": "natargetnum",
+                                        "action_type": "order",
+                                        "value": "17099741001"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0042",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0126",
+                                "action_type": "order",
+                                "properties": [
+                                    {
+                                        "key": "cbtargetnum",
+                                        "action_type": "order",
+                                        "value": "17099741002"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0036",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0116",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0127",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0037",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0117",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0128",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0011",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0035",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0036",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0037",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0038",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0039",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0040",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0041",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0042",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0043",
+                                "action_type": "order"
+                            },
+                            {
+                                "discnt_id": "PE_0044",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0038",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0118",
+                                "action_type": "order"
+                            }
+                        ]
+                    },
+                    {
+                        "package_id": "PK_0043",
+                        "discnts": [
+                            {
+                                "discnt_id": "PE_0129",
+                                "action_type": "order"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]

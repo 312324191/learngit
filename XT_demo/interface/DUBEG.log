@@ -1,17 +1,80 @@
-Tue, 27 Mar 2018 15:09:15 demo01.py[line:75] DEBUG This is debug message svc_number : 17090440548
-Tue, 27 Mar 2018 15:09:15 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): 10.161.50.86
-Tue, 27 Mar 2018 15:09:18 connectionpool.py[line:396] DEBUG https://10.161.50.86:8006 "POST /OSN/vop/extended_service/blankcard_register_account/v2?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY HTTP/1.1" 200 44
-Tue, 27 Mar 2018 15:09:18 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.161.50.86
-Tue, 27 Mar 2018 15:09:18 connectionpool.py[line:396] DEBUG http://10.161.50.86:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None
-Tue, 27 Mar 2018 15:10:18 demo01.py[line:156] DEBUG This is debug message change_json_data : {"service_name": "modify_service", "api_name": "cu.vop.basic_service.modify_service", "timestamp": "2018-03-27 15:09:15", "service_type": "basic_service", "serial_number": "OJvWpmI20180327150915808361415", "mvnokey": "OJvWpmI", "data": {"phone_number": 17090440548, "customer": {"cert_type_code": "01", "cert_address": "\u5317\u4eac", "cust_name": "\u738b\u4e09", "cert_code": "220111198603010011"}, "service_class_code": "4G", "order_id": "OJvWpmI201803271509158083614150000", "services": [{"product_id": "V0001", "action_type": "keep"}, {"product_id": "V0024", "action_type": "order"}, {"product_id": "V0025", "action_type": "keep"}, {"product_id": "V0003", "action_type": "keep"}], "imsi": "460010449800687"}}
-Tue, 27 Mar 2018 15:10:18 demo01.py[line:157] DEBUG This is debug message self.change_url : https://10.161.50.86:8006/OSN/vop/basic_service/modify_service/v2?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY
-Tue, 27 Mar 2018 15:10:18 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): 10.161.50.86
-Tue, 27 Mar 2018 15:10:20 connectionpool.py[line:396] DEBUG https://10.161.50.86:8006 "POST /OSN/vop/basic_service/modify_service/v2?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY HTTP/1.1" 200 44
-Tue, 27 Mar 2018 15:10:20 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.161.50.86
-Tue, 27 Mar 2018 15:10:20 connectionpool.py[line:396] DEBUG http://10.161.50.86:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None
-Tue, 27 Mar 2018 15:11:21 demo01.py[line:185] DEBUG This is debug message switch_json_data : {"service_name": "switch_status", "api_name": "cu.vop.basic_service.switch_status", "timestamp": "2018-03-27 15:09:15", "service_type": "basic_service", "serial_number": "OJvWpmI20180327150915114820452", "mvnokey": "OJvWpmI", "data": {"phone_number": 17090440548, "customer": {"cert_type_code": "01", "cert_address": "\u5317\u4eac", "cust_name": "\u738b\u4e09", "cert_code": "220111198603010011"}, "service_class_code": "4G", "order_id": "OJvWpmI201803271509151148204520000", "services": [{"product_id": "V0001", "action_type": "off"}, {"product_id": "V0024", "action_type": "keep"}, {"product_id": "V0025", "action_type": "keep"}], "iccid": "89860119900001774370", "imsi": "460010449800687"}}
-Tue, 27 Mar 2018 15:11:21 demo01.py[line:186] DEBUG This is debug message self.switch_url : https://10.161.50.86:8006/OSN/vop/basic_service/switch_status/v3?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY
-Tue, 27 Mar 2018 15:11:21 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): 10.161.50.86
-Tue, 27 Mar 2018 15:11:22 connectionpool.py[line:396] DEBUG https://10.161.50.86:8006 "POST /OSN/vop/basic_service/switch_status/v3?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY HTTP/1.1" 200 44
-Tue, 27 Mar 2018 15:11:22 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.161.50.86
-Tue, 27 Mar 2018 15:11:22 connectionpool.py[line:396] DEBUG http://10.161.50.86:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None
+Wed, 18 Apr 2018 18:24:28 SuperAccount.py[line:61] DEBUG This is debug message svc_number : 17070170547
+Wed, 18 Apr 2018 18:24:28 SuperAccount.py[line:74] DEBUG This is debug message json_data : {
+    "service_name": "blankcard_register_account_model", 
+    "api_name": "cu.vop.model_product.blankcard_register_account_model", 
+    "timestamp": "2018-04-18 18:24:27", 
+    "service_type": "model_product", 
+    "serial_number": "OJvWpmI20180418182427540763478", 
+    "mvnokey": "OJvWpmI", 
+    "data": {
+        "phone_number": 17070170547, 
+        "customer": {
+            "cert_type_code": "01", 
+            "cert_address": "\u5317\u4eac", 
+            "cust_name": "\u738b\u4e09", 
+            "cert_code": "220111198603010011"
+        }, 
+        "service_class_code": "4G", 
+        "order_id": "OJvWpmI201804181824275407634780000", 
+        "iccid": "89860119900001780680", 
+        "user_property": "postpaid", 
+        "mproducts": [
+            {
+                "mproduct_id": "PR_0005", 
+                "packages": [
+                    {
+                        "package_id": "PK_0033", 
+                        "discnts": [
+                            {
+                                "action_type": "order", 
+                                "discnt_id": "ZE_0111"
+                            }
+                        ]
+                    }, 
+                    {
+                        "package_id": "PK_0035", 
+                        "discnts": [
+                            {
+                                "action_type": "order", 
+                                "discnt_id": "PE_0119"
+                            }
+                        ]
+                    }, 
+                    {
+                        "package_id": "PK_0043", 
+                        "discnts": [
+                            {
+                                "action_type": "order", 
+                                "discnt_id": "PE_0129"
+                            }
+                        ]
+                    }, 
+                    {
+                        "package_id": "PK_0042", 
+                        "discnts": [
+                            {
+                                "action_type": "order", 
+                                "discnt_id": "PE_0126"
+                            }
+                        ]
+                    }, 
+                    {
+                        "package_id": "PK_0040", 
+                        "discnts": [
+                            {
+                                "action_type": "order", 
+                                "discnt_id": "PE_0124"
+                            }
+                        ]
+                    }
+                ], 
+                "action_type": "order"
+            }
+        ], 
+        "imsi": "460010177812443"
+    }
+}
+Wed, 18 Apr 2018 18:24:28 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): 10.124.1.7
+Wed, 18 Apr 2018 18:24:31 connectionpool.py[line:396] DEBUG https://10.124.1.7:8006 "POST /OSN/vop/model_product/blankcard_register_account_model/v3?token=hcOPBgJ4dB8WBy1V5nrpGaIqaP2INnrhRd0IZ4GflgtCPWsY HTTP/1.1" 200 44
+Wed, 18 Apr 2018 18:24:33 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): 10.124.1.7
+Wed, 18 Apr 2018 18:24:34 connectionpool.py[line:396] DEBUG http://10.124.1.7:8000 "POST /OSN/services/VOPForOrderCompleteNotifySer HTTP/1.1" 200 None

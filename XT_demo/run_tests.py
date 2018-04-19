@@ -11,7 +11,6 @@ import test_data
 
 test_dir = path+'\\interface'
 discover = unittest.defaultTestLoader.discover(test_dir, pattern='test_*.py')
-print discover
 if __name__ == '__main__':
     # test_data.init_data()
     now = time.strftime("%Y-%m-%d %H_%M_%S")
