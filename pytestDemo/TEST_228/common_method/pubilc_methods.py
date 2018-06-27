@@ -389,7 +389,7 @@ def req_RT(url_Route_RT, rsp_0vid, status_id, nc, mid, callback, Ptype=0, num=1,
 def sql_b_product_session_price(price_type, product_id):
     try:
         db = DB()
-        sql = "select price_id, product_id, product_session_id,price\
+        sql = "select price_id, product_id, product_session_id, price, ticket_count\
         from phoenix_trade.`b_product_session_price`\
         where price_type=%s and status=0 and seat_selection_sale_status=0 and  product_id=%s" % (price_type, product_id)
         return db.select_one(sql)

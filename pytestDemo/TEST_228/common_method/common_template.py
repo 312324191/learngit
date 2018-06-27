@@ -63,13 +63,8 @@ def CPOST():
                 "priceRealIDMap":{
                     "23553": [
                         {
+                            "approved": 0,
                             "id": "320113199209122424",
-                            "name": "a",
-                            "phone": "15901194021",
-                            "type": 1
-                        },
-                        {
-                            "id": "421202199407046224",
                             "name": "a",
                             "phone": "15901194021",
                             "type": 1
@@ -78,10 +73,10 @@ def CPOST():
                 },
                 "productId":702,
                 "requirement":[
-                    {"amount": 2, "priceId":23556}
+                    {"amount": 1, "priceId":23556}
                     ],
                 "sessionId":4196,
-                "ticketType":2
+                "ticketType":1
             },
             "head":{
                 "apiId":"CPOST",
