@@ -10,6 +10,8 @@ base_dir = base_dir.replace('\\', '/')
 file_path = base_dir + "/db_fixture"
 sys.path.append(file_path)
 
+from mysql_db import DB
+
 jar_path = base_dir + "/lib"
 sys.path.append(jar_path)
 
@@ -225,7 +227,7 @@ def req_ZB(url_Route_ZB, rsp_0vid, status_id, nc, mid, callback, Ptype=0, num=1,
                 if rsp_dict.get("result")[i].get("on_sale") == 1 and rsp_dict.get("result")[i].get("symbol_name")== "普通票" and rsp_dict.get("result")[i].get("createOrderDate") is None and rsp_dict.get("result")[i].get("tp_id") == "0":
                     tp_type_message.append(rsp_dict.get("result")[i])
         # 座位id与票价id
-        logging.debug("座位信息：%s"% tp_type_message)
+        # logging.debug("座位信息：%s"% tp_type_message)
         if Ptype == 0 or Ptype == 4 :
             tp_type_message = tp_type_message[0]
             rsp_zb_id = []
@@ -382,6 +384,18 @@ def req_RT(url_Route_RT, rsp_0vid, status_id, nc, mid, callback, Ptype=0, num=1,
         raise e
     except Exception as e:
         raise e
+
+
+def sql_b_product_session_price(price_type, product_id):
+    try:
+        db = DB()
+        sql = "select price_id, product_id, product_session_id,price\
+        from phoenix_trade.`b_product_session_price`\
+        where price_type=%s and status=0 and seat_selection_sale_status=0 and  product_id=%s" % (price_type, product_id)
+        return db.select_one(sql)
+    except Exception as e:
+        raise e1
+    finally:
+        db.close()
 if __name__ == '__main__':
-    data = {"body":{"orderNo":"P18062500101557790"},"head":{"apiId":"FOST","appId":"10","appUserName":"yleAI","sdkVersion":"2.0.0-beta09","sign":"3922072D4C67E24A67BF6FBAAD9EC1BD","token":"201806251739042018062517390439824"}}
-    print(req_post(data))
+    print(sql_b_product_session_price(524))

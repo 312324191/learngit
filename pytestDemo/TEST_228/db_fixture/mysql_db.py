@@ -49,8 +49,10 @@ class DB:
 if __name__ == '__main__':
     try:
         db = DB()
-        sql = "select ma.MVNO_KEY as mvnokey from esbcfgdb.mvno_app ma where ma.MVNO_BUSINESS_MARK='%s'" % 'VOPI'
-        print db.select_one(sql)
+        sql = "select price_id, product_id, product_session_id,design_id\
+        from phoenix_trade.`b_product_session_price`\
+        where price_type=1 and status=0 and seat_selection_sale_status=0 and  product_id=524"
+        print(db.select_one(sql))
     except Exception as e:
         raise e
     finally:
