@@ -385,7 +385,6 @@ def req_RT(url_Route_RT, rsp_0vid, status_id, nc, mid, callback, Ptype=0, num=1,
     except Exception as e:
         raise e
 
-
 def sql_b_product_session_price(price_type, product_id):
     try:
         db = DB()
@@ -398,4 +397,17 @@ def sql_b_product_session_price(price_type, product_id):
     finally:
         db.close()
 if __name__ == '__main__':
-    print(sql_b_product_session_price(524))
+    header={
+            "body":{
+                "productId": 524
+            },
+            "head":{
+                "apiId":"SESSION_LIST",
+                "appId": 10,
+                "appUserName":"yleAI",
+                "sdkVersion":"2.0.0-beta09",
+                "sign":"e9f9e74046f9499c8229355c10adfb1c",
+                "token":201806282033132018062810341389257
+            }
+        }
+    print(req_post(header))

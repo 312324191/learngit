@@ -586,6 +586,6 @@ class testRegistAccount01(unittest.TestCase):
 if __name__=='__main__':
     # 这里实名验证的参数有待优化
     suite = unittest.TestSuite()
-    suite.addTest(testRegistAccount01("testNormal_001"))  # 按用例执行
+    suite.addTest(testRegistAccount01("testNormal_004"))  # 按用例执行
     unittest.TextTestRunner(verbosity=2).run(suite)
     # unittest.main()

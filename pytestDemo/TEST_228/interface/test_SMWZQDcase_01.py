@@ -27,10 +27,10 @@ import configparser as cparser
 cf = cparser.ConfigParser()
 cf.read(file_path)
 
-pid = cf.get("API_SEAT_P", "pid")
-mid = cf.get("API_SEAT_P", "mid")
-nc = cf.get("API_SEAT_P", "nc")
-callback = cf.get("API_SEAT_P", "callback")
+pid = cf.get("API_SEAT_QD", "pid")
+mid = cf.get("API_SEAT_QD", "mid")
+nc = cf.get("API_SEAT_QD", "nc")
+callback = cf.get("API_SEAT_QD", "callback")
 
 class testRegistAccount01(unittest.TestCase):
     def setUp(self):
@@ -48,7 +48,7 @@ class testRegistAccount01(unittest.TestCase):
         # CSOSTtext["body"]["ticketType"] = 2
         del CPOSTtext["body"]['mchntOrderNo']
         # del CPOSTtext["body"]['priceRealIDMap']
-        CPOSTtext["body"]["priceAmount"] = int(b_product_session_price["price"])
+        CPOSTtext["body"]["priceAmount"] = float(b_product_session_price["price"])
         CPOSTtext["body"]["productId"] = b_product_session_price["product_id"] 
         CPOSTtext["body"]["sessionId"] = b_product_session_price["product_session_id"] 
         CPOSTtext["body"]["requirement"][0]["priceId"] = b_product_session_price["price_id"] 
@@ -66,6 +66,8 @@ class testRegistAccount01(unittest.TestCase):
         CPOSTtext["body"]["priceRealIDMap"]={
             str(b_product_session_price["price_id"]): personinfo
         }
+        CPOSTtext["head"]["appId"] = "10"
+        CPOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         rsp = req_post(CPOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -75,6 +77,8 @@ class testRegistAccount01(unittest.TestCase):
         # 确认订单订单接口
         FOSTtext = FOST()
         FOSTtext["body"]["orderNo"] = rsp_orderNo
+        FOSTtext["head"]["appId"] = "10"
+        FOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
@@ -102,6 +106,8 @@ class testRegistAccount01(unittest.TestCase):
         CPOSTtext["body"]["priceRealIDMap"]={
             str(b_product_session_price["price_id"]): personinfo
         }
+        CPOSTtext["head"]["appId"] = "10"
+        CPOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         logging.debug("CPOSTtext:%s" % CPOSTtext)
         rsp = req_post(CPOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
@@ -111,8 +117,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
-
-
+        FOSTtext["head"]["appId"] = "10"
+        FOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -143,6 +149,8 @@ class testRegistAccount01(unittest.TestCase):
         CPOSTtext["body"]["priceRealIDMap"]={
             str(b_product_session_price["price_id"]): personinfo
         }
+        CPOSTtext["head"]["appId"] = "10"
+        CPOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         rsp = req_post(CPOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -151,6 +159,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
+        FOSTtext["head"]["appId"] = "10"
+        FOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -181,6 +191,8 @@ class testRegistAccount01(unittest.TestCase):
         CPOSTtext["body"]["priceRealIDMap"]={
             str(b_product_session_price["price_id"]): personinfo
         }
+        CPOSTtext["head"]["appId"] = "10"
+        CPOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         rsp = req_post(CPOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -189,13 +201,14 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
-
+        FOSTtext["head"]["appId"] = "10"
+        FOSTtext["head"]["sign"] = "e9f9e74046f9499c8229355c10adfb1c"
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
 if __name__=='__main__':
-    suite = unittest.TestSuite()
-    suite.addTest(testRegistAccount01("testNormal_001"))  # 按用例执行
-    unittest.TextTestRunner(verbosity=2).run(suite)
-    # unittest.main()
+    # suite = unittest.TestSuite()
+    # suite.addTest(testRegistAccount01("testNormal_001"))  # 按用例执行
+    # unittest.TextTestRunner(verbosity=2).run(suite)
+    unittest.main()

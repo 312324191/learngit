@@ -494,7 +494,7 @@ class testRegistAccount01(unittest.TestCase):
         logging.debug("rsp:%s"% rsp)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
 if __name__=='__main__':
-    # suite = unittest.TestSuite()
-    # suite.addTest(testRegistAccount01("testNormal_005"))  # 按用例执行
-    # unittest.TextTestRunner(verbosity=2).run(suite)
-    unittest.main()
+    suite = unittest.TestSuite()
+    suite.addTest(testRegistAccount01("testNormal_001"))  # 按用例执行
+    unittest.TextTestRunner(verbosity=2).run(suite)
+    # unittest.main()
