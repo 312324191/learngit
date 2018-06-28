@@ -27,10 +27,10 @@ import configparser as cparser
 cf = cparser.ConfigParser()
 cf.read(file_path)
 
-pid = cf.get("API_SEAT_QD", "pid")
-qd_mid = cf.get("API_SEAT_QD", "qd_mid")
-nc = cf.get("API_SEAT_QD", "nc")
-callback = cf.get("API_SEAT_QD", "callback")
+pid = cf.get("API_SEAT_FSM", "pid")
+qd_mid = cf.get("API_SEAT_FSM", "qd_mid")
+nc = cf.get("API_SEAT_FSM", "nc")
+callback = cf.get("API_SEAT_FSM", "callback")
 
 class testRegistAccount01(unittest.TestCase):
     def setUp(self):

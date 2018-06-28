@@ -12,7 +12,7 @@ file_path = base_dir + "/db_fixture"
 
 sys.path.append(file_path)
 
-from pubilc_methods import  files, Format
+# from pubilc_methods import  files, Format
 
 # ====== 日志打印 bebug级别 ======
 import logging
@@ -267,7 +267,8 @@ def SESSION_LIST():
     # 场次列表接口
     header={
             "body":{
-                "productId": 1
+                "productId": 1,
+                "sessionId":4629
             },
             "head":{
                 "apiId":"SESSION_LIST",
