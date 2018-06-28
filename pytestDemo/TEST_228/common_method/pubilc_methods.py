@@ -10,6 +10,7 @@ base_dir = base_dir.replace('\\', '/')
 file_path = base_dir + "/db_fixture"
 sys.path.append(file_path)
 
+from common_template import *
 from mysql_db import DB
 
 jar_path = base_dir + "/lib"
@@ -386,6 +387,7 @@ def req_RT(url_Route_RT, rsp_0vid, status_id, nc, mid, callback, Ptype=0, num=1,
         raise e
 
 def sql_b_product_session_price(price_type, product_id):
+    # price_type 0：无座 1：有座
     try:
         db = DB()
         sql = "select price_id, product_id, product_session_id, price, ticket_count\
@@ -396,18 +398,24 @@ def sql_b_product_session_price(price_type, product_id):
         raise e1
     finally:
         db.close()
+
+def req_SESSION_LIST(productId):
+    SESSION_LIST_text = PRODUCT_LIST()
+    SESSION_LIST_text["body"]["productId"]=productId
+    SESSION_LIST_text["head"]["appId"]=10
+    SESSION_LIST_text["head"]["sign"]='e9f9e74046f9499c8229355c10adfb1c'
+    print(req_post(SESSION_LIST_text))
+    SESSION_LIST_text = SESSION_LIST()
+    SESSION_LIST_text["body"]["productId"]=productId
+    SESSION_LIST_text["head"]["appId"]=10
+    SESSION_LIST_text["head"]["sign"]='e9f9e74046f9499c8229355c10adfb1c'
+    print()
+    print(req_post(SESSION_LIST_text))
+    print()
+    SESSION_LIST_text = TICKET_PRICE_LIST()
+    SESSION_LIST_text["body"]["sessionId"]=4627
+    SESSION_LIST_text["head"]["appId"]=10
+    SESSION_LIST_text["head"]["sign"]='e9f9e74046f9499c8229355c10adfb1c'
+    print(req_post(SESSION_LIST_text))
 if __name__ == '__main__':
-    header={
-            "body":{
-                "productId": 524
-            },
-            "head":{
-                "apiId":"SESSION_LIST",
-                "appId": 10,
-                "appUserName":"yleAI",
-                "sdkVersion":"2.0.0-beta09",
-                "sign":"e9f9e74046f9499c8229355c10adfb1c",
-                "token":201806282033132018062810341389257
-            }
-        }
-    print(req_post(header))
+    req_SESSION_LIST(746)
