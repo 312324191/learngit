@@ -13,7 +13,7 @@ base_dir = path.replace('\\', '/')
 file_path = base_dir + "/common_method"
 sys.path.append(file_path)
 from time import sleep
-from common_template import CSOST
+from common_template import CHANGE_TICKET_PHONE
 from pubilc_methods import *
 
 requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += 'HIGH:!DH:!aNULL'
@@ -26,10 +26,10 @@ file_path = base_dir + "/db_config.ini"
 import configparser as cparser
 cf = cparser.ConfigParser()
 cf.read(file_path)
-pid = cf.get("API_SEAT_P", "pid")
-mid = cf.get("API_SEAT_P", "mid")
-nc = cf.get("API_SEAT_P", "nc")
-callback = cf.get("API_SEAT_P", "callback")
+pid = cf.get("API_SEAT_FSM", "pid")
+mid = cf.get("API_SEAT_FSM", "mid")
+nc = cf.get("API_SEAT_FSM", "nc")
+callback = cf.get("API_SEAT_FSM", "callback")
 
 def url_228():
     url = Url_Class()
@@ -38,22 +38,15 @@ def url_228():
     url_ZB = url.url_ZB()
     url_More = url.url_More()
     global pid, mid, nc, callback
-    rsp_0vid = req_P(url_P, pid, mid, nc, callback)
-    status_id, prices, tp_prices = req_V(url_V, rsp_0vid, nc, mid, callback)
-    Ptype = 2
-    rsp_zb_id, rsp_zb_price_id, tp_id = req_ZB(url_ZB, rsp_0vid, status_id, nc, mid, callback,Ptype=Ptype)
-    if Ptype==0: prices=prices
-    elif Ptype==2: prices=tp_prices
-    price, price_id = price_messages(prices, rsp_zb_price_id, Ptype=Ptype)
+    # rsp_0vid = req_P(url_P, pid, mid, nc, callback)
+    # status_id, prices, tp_prices = req_V(url_V, rsp_0vid, nc, mid, callback)
+    CHANGE_TICKET_PHONE_text = CHANGE_TICKET_PHONE()
 
-    CSOSTtext = CSOST()
-    CSOSTtext["body"]["priceAmount"] = price
-    CSOSTtext["body"]["productId"] = pid
-    CSOSTtext["body"]["sessionId"] = rsp_0vid
-    CSOSTtext["body"]["requirement"][0]["priceId"] = price_id
-    CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
-    CSOSTtext["body"]["requirement"][0]["type"] = Ptype
-    rsp = req_post(CSOSTtext)
+    CHANGE_TICKET_PHONE_text["body"]["oldPhone"]='18701397232'
+    CHANGE_TICKET_PHONE_text["body"]["newPhone"]='18701397231'
+    CHANGE_TICKET_PHONE_text["body"]["ticketNo"]='P18070200051558098'
+    logging.debug("CHANGE_TICKET_PHONE_text:%s" % CHANGE_TICKET_PHONE_text)
+    rsp = req_post(CHANGE_TICKET_PHONE_text)
     return rsp
     
 if __name__ == '__main__':

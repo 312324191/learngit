@@ -11,7 +11,7 @@ from HTMLTestRunner import HTMLTestRunner
 import unittest
 
 test_dir = path+'\\interface'
-discover = unittest.defaultTestLoader.discover(test_dir, pattern='test_*ZBcase_01.py')
+discover = unittest.defaultTestLoader.discover(test_dir, pattern='test_*QDcase_01.py')
 if __name__ == '__main__':
     now = time.strftime("%Y-%m-%d %H-%M-%S")
     filename = './report/'+now + '_result.html'

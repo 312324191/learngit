@@ -379,6 +379,7 @@ def req_RT(url_Route_RT, rsp_0vid, status_id, nc, mid, callback, Ptype=0, num=1,
             rsp_zb_id = [data[i].get("id") for i in range(num)]
             rsp_zb_price_id = data[0].get("tp_type_id")
             tp_type_message = data[0].get("tp_id")
+        rsp_zb_id.sort()
         return rsp_zb_id, rsp_zb_price_id, str(tp_type_message)
     except IndexError as e:
         print("没有找到票种信息")
@@ -417,5 +418,18 @@ def req_SESSION_LIST(productId):
     SESSION_LIST_text["head"]["appId"]=10
     SESSION_LIST_text["head"]["sign"]='e9f9e74046f9499c8229355c10adfb1c'
     print(req_post(SESSION_LIST_text))
+
+def sql_appId_sign(appId):
+    try:
+        db = DB()
+        sql = "select mcr.id as appId,secure_key as sign from phoenix_user.b_merchant mc\
+        left join phoenix_user.b_merchant_role mcr on mc.ID=mcr.merchant_id\
+        where mcr.ID='%s'" % appId
+        return db.select_one(sql)
+    except Exception as e:
+        raise e
+    finally:
+        db.close()
+
 if __name__ == '__main__':
-    req_SESSION_LIST(746)
+    print(sql_appId_sign(5) )

@@ -28,7 +28,7 @@ cf = cparser.ConfigParser()
 cf.read(file_path)
 
 pid = cf.get("API_SEAT_FSM", "pid")
-mid = cf.get("API_SEAT_FSM", "mid")
+mid = cf.get("API_SEAT_FSM", "qd_mid")
 nc = cf.get("API_SEAT_FSM", "nc")
 callback = cf.get("API_SEAT_FSM", "callback")
 

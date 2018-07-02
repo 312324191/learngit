@@ -39,7 +39,9 @@ class testRegistAccount01(unittest.TestCase):
         self.url_Route_P = UC.url_P()
         self.url_Route_V = UC.url_V()
         self.url_Route_ZB = UC.url_ZB()
-
+        self.appId = sql_appId_sign(mid).get("appId")
+        self.sign = sql_appId_sign(mid).get("sign")
+        
     def testNormal_001(self):
         """
         调用P接口获取vid 作为V接口参数vid参数 
@@ -84,6 +86,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -92,6 +96,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -139,6 +145,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -147,6 +155,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -195,6 +205,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -203,6 +215,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -251,6 +265,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -259,8 +275,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
-
-
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -309,6 +325,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -317,6 +335,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -365,6 +385,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -373,6 +395,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -422,6 +446,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -430,6 +456,8 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
@@ -479,6 +507,8 @@ class testRegistAccount01(unittest.TestCase):
         CSOSTtext["body"]["requirement"][0]["seatEntry"][tp_id] = rsp_zb_id
         CSOSTtext["body"]["requirement"][0]["type"] = Ptype
         del CSOSTtext["body"]["seatRealIDMap"]
+        CSOSTtext["head"]["appId"] = self.appId
+        CSOSTtext["head"]["sign"] = self.sign
         rsp = req_post(CSOSTtext)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
         # 获取到云订单号传送给确定订单接口
@@ -487,14 +517,14 @@ class testRegistAccount01(unittest.TestCase):
         # 拼装报文
         # 确认订单订单接口
         FOSTtext = FOST()
-
-
+        FOSTtext["head"]["appId"] = self.appId
+        FOSTtext["head"]["sign"] = self.sign
         FOSTtext["body"]["orderNo"] = rsp_orderNo
         rsp = req_post(FOSTtext)
         logging.debug("rsp:%s"% rsp)
         self.assertEqual(rsp.get("head").get("code"), "SUCCESS")
 if __name__=='__main__':
-    suite = unittest.TestSuite()
-    suite.addTest(testRegistAccount01("testNormal_001"))  # 按用例执行
-    unittest.TextTestRunner(verbosity=2).run(suite)
-    # unittest.main()
+    # suite = unittest.TestSuite()
+    # suite.addTest(testRegistAccount01("testNormal_001"))  # 按用例执行
+    # unittest.TextTestRunner(verbosity=2).run(suite)
+    unittest.main()

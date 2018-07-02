@@ -304,8 +304,8 @@ def CHANGE_TICKET_PHONE():
     # 云票品手机号码修改接口
     header={
             "body":{
-                # "oldPhone": "1223123",
                 "newPhone": "1231313",
+                "oldPhone": "1223123",
                 "ticketNo": "T0042230002281181"
             },
             "head":{
